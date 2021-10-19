@@ -5,12 +5,12 @@
 -- 1) Work on Objects: Database, tables , columns(data types)
 --Objects action: CREATE , ALTER , DROP (DDL - Data Definition language)
 
-/*Crate new sql DB minmal syntax*/
+/*Crate new sql DB minimal syntax*/
 CREATE DATABASE SimpleDbCreation
 
 /*
 Crate new sql DB complete syntax
-included logs and more defnitions
+included logs and more definitions
 */
 CREATE DATABASE Uni_erez    
 ON (NAME = 'Uni_erez_Data', 
@@ -30,7 +30,7 @@ Use Uni_erez
 go
 
 /*Drop database*/
-Use Master /*swich to other db before remove the right dB*/
+Use Master /*switch to other db before remove the right dB*/
 GO
 Drop Database Uni_erez
 GO
@@ -49,7 +49,7 @@ CREATE TABLE Students (
  Birthday datetime NOT NULL,
  /*age erez_code NOT NULL */
 )
-/*Create new table with spcial column that we define 'erez_code'*/
+/*Create new table with spacial column that we define 'erez_code'*/
 CREATE TABLE book (
  BookId int NOT NULL,
  Student_Id int NOT NULL,
@@ -58,7 +58,7 @@ CREATE TABLE book (
 )
 
 /***Modify table object actions***/
-/*add new column to exist tabale*/
+/*add new column to exist table*/
 ALTER TABLE Students
 ADD newColumn char(10)
 
@@ -96,27 +96,27 @@ REFERENCES Students1 (Student_Id)
 /*change or adding column with conditions*/
 ALTER TABLE Student 
 ADD
-CONSTRAINT Adress  DEFAULT 'Hadera' FOR adress,
-CONSTRAINT Phone_area CHECK (len ( phone_code ) > 2),
+CONSTRAINT address_  DEFAULT 'Hadera' FOR address_,
+CONSTRAINT Phone_area CHECK (len ( Phone_area ) > 2),
 CONSTRAINT Phone UNIQUE (Telephone)
 
 
 -- 2) Work on Data:MODIFY rows tables (DML - Data Manipulation Language)
---DATA action: INSERT , UPDATE , DELET
+--DATA action: INSERT , UPDATE , DELETE
 
 set DateFormat ymd
 /* Inserting data to the tables */
-INSERT dbo.Students (Student_Id,FirstName,LastName,Birthday) VALUES (1,'EREZ','ASMARA','1989/10/30')
+INSERT dbo.Students (Student_Id,FirstName,LastName,Birthday) VALUES (1,'EREZ','ASMARA','2000/12/10')
 
 /*Delete data from tables*/
 DELETE FROM Students WHERE Student_Id = 1
 
 /* Update row/data from tables */
 UPDATE  Students
-SET FirstName='aviva' , LastName = 'tzagay'
+SET FirstName='erez' , LastName = 'asmara'
 WHERE Student_Id = 1
 
--- 3) Work on Data: SELECT data and informtion(DML - Data Manipulation Language)
+-- 3) Work on Data: SELECT data and information(DML - Data Manipulation Language)
 --DATA action: SELECT(5) , FROM(1) , WHERE(2), GROUP BY(3), HAVING(4),ORDER BY(6)
 -- Operators :  !=,<>,+,<,>,>=,<= ,BETWEEN,AND,OR,NOT,IN,NOT IN,LIKE,IS NULL,IS NOT NULL
 
@@ -129,7 +129,7 @@ SELECT   [DISTINCT]
      GROUP  BY  [[ ALL ]  group_by_expression1, group_by_expression2,…]
      HAVING   [search_conditions  ]   ]
      ORDER BY  [column_name1 [ASC | DESC ] , column_name2  [ASC | DESC ],…]
-    BY  [xpression1, expression2,…]
+    BY  [expression1, expression2,…]
 --------------------------------------------------------------------------
 TOP n => show first n rows
 AS => changing row title ,'SELECT FirstName As name'
@@ -161,7 +161,7 @@ SELECT YEAR(GETDATE())
 SELECT MONTH(GETDATE())
 SELECT DAY(GETDATE())
 SELECT DATENAME(MONTH,GETDATE()) 
-thier is more func
+their is more func
 
 B) understanding 'literals' concept !!
 
@@ -183,7 +183,7 @@ FROM Marks
 
 --5) VIEWS , UNION
 /* 
--VEIWS : is a virtual table whose contents are defined  by a query, good for blocking access
+-VIEWS : is a virtual table whose contents are defined  by a query, good for blocking access
 to the tables (ORDER BY cant used with views syntax)
 -UNION : MERGE two results of select queries
 */
@@ -204,7 +204,7 @@ FROM Sample_view
 SELECT *
 FROM [dbo].[Cities]
 
---seprate the table and merage the result with union action
+--septate the table and merge the result with union action
 SELECT *
 FROM [dbo].[Cities]
 WHERE City_Code <= 4
@@ -227,7 +227,7 @@ NOTES:
 SELECT *
 FROM [dbo].[Marks]
 
--- group avrage reslut by course code 
+-- group average result by course code 
 SELECT Course_Code ,AVG(Mark_Sem_A) as avg_marks_sem_a
 FROM [dbo].[Marks]
 GROUP BY Course_Code
