@@ -1,3 +1,4 @@
+# **CheatSheet**
 #  SQL BASIC (commands) - Structured Query language (commands)
 
 ## 1) Work on Objects: Database, tables , columns (data types)
